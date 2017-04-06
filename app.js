@@ -5,7 +5,7 @@ var answer1 = prompt('Do you know me? Do I Like to Drive for fun?');
 var score1;
 var answer2 = prompt('Do I like to Snowboard?');
 var score2;
-var answer3 = prompt('Us there CSS on my webpage');
+var answer3 = prompt('Is there CSS on my webpage');
 var score3;
 var answer4 = prompt('Can I breath under water');
 var score4;
@@ -61,6 +61,40 @@ message = (score1+score2+ score3+ score4+ score5);
 };
 alert(forClient);
 
+var favNumber;
+var completeGame = false;
+var clientGuess;
+
+var clientAttempt;
+for (clientAttempt = 0; clientAttempt < 4 && completeGame == false; clientAttempt++) {
+  // Runs 5 times, with values of step 0 through 4.
+  clientGuess = prompt('whats my favorite number')
+  if (clientGuess ==2){
+    completeGame = true;
+    alert('you got it')
+  }
+  else if (clientGuess < 2){
+    alert("guess is to low");
+  }
+  else{
+    alert("guess is to high");
+  }
+}
+
+var planets=["murcury", "venus", "earth", "mars"];
+var planetCount=0;
+var planetGuess;
+var planetAttempt;
+var planetDone=false;
+
+for (planetAttempt = 0; planetAttempt < 6; planetAttempt++) {
+    planetGuess = prompt('Closest 4 planets?');
+    console.log('planet guess ' + planetGuess);
+    if (planets.includes(planetGuess)) {
+        alert('You got one right!');
+        planetAttempt++;
+    }
+}
 console.log(answer1);
 console.log(score1);
 console.log(answer2);
