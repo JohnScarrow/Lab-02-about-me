@@ -1,5 +1,6 @@
 'use strict';
 
+function mainQuestion(){
 console.log('best page ever');
 var answer1 = prompt('Do you know me? Do I Like to Drive for fun?');
 var score1;
@@ -60,7 +61,9 @@ message = (score1+score2+ score3+ score4+ score5);
     forClient="You ain't know me";
 };
 alert(forClient);
+}
 
+function numberQuestion(){
 var favNumber;
 var completeGame = false;
 var clientGuess;
@@ -80,8 +83,10 @@ for (clientAttempt = 0; clientAttempt < 4 && completeGame == false; clientAttemp
     alert("guess is to high");
   }
 }
+}
 
-var planets=["murcury", "venus", "earth", "mars"];
+function planetsQuestion(){
+var planets=["mercury", "venus", "earth", "mars"];
 var planetCount=0;
 var planetGuess;
 var planetAttempt;
@@ -92,9 +97,16 @@ for (planetAttempt = 0; planetAttempt < 6; planetAttempt++) {
     console.log('planet guess ' + planetGuess);
     if (planets.includes(planetGuess)) {
         alert('You got one right!');
-        planetAttempt++;
+        planetCount++;
+        alert('You got ' + planetCount + ' out of 4!')
     }
 }
+}
+
+mainQuestion();
+numberQuestion();
+planetsQuestion();
+
 console.log(answer1);
 console.log(score1);
 console.log(answer2);
