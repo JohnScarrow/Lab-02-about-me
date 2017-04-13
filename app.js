@@ -21,79 +21,85 @@ answer4.toLowerCase.trim;
 answer5.toLowerCase.trim;
 
 if (answer1=='yes'){
-  score1="OK";
+  score1='OK';
 }
 else {
-  score1=="Naw";
-};
+  score1=='Naw';
+}
 if (answer2=='yes'){
-  score2="OK";
+  score2='OK';
 }
 else {
-  score2="Naw";
-};
+  score2='Naw';
+}
 if (answer3=='yes'){
-  score3="OK";
+  score3='OK';
 }
 else {
-  score3="Naw";
-};
+  score3='Naw';
+}
 if (answer4=='no'){
-  score4="OK";
+  score4='OK';
 }
 else {
-  score4="Naw";
-};
-if (answer5=='yes'){
-  score5="OK";
-}
-else {
-  score5="Naw";
-};
+  score4='Naw';
 
-message = (score1+score2+ score3+ score4+ score5);
-
-  if (message=='OKOKOKOKOK'){
-    forClient="Wow, you do know things about me";
+  if (answer5=='yes'){
+    score5='OK';
   }
   else {
-    forClient="You ain't know me";
-};
-alert(forClient);
+    score5='Naw';
+  }
 
-var favNumber;
-var completeGame = false;
-var clientGuess;
+  message = (score1+score2+ score3+ score4+ score5);
 
-var clientAttempt;
-for (clientAttempt = 0; clientAttempt < 4 && completeGame == false; clientAttempt++) {
+  if (message=='OKOKOKOKOK'){
+    forClient='Wow, you do know things about me';
+  }
+  else {
+    forClient='You aint know me';
+  }
+  alert(forClient);
+
+  var completeGame = false;
+  var clientGuess;
+
+  var clientAttempt;
+  for (clientAttempt = 0; clientAttempt < 4 && completeGame == false; clientAttempt++) {
   // Runs 5 times, with values of step 0 through 4.
-  clientGuess = prompt('whats my favorite number')
-  if (clientGuess ==2){
-    completeGame = true;
-    alert('you got it')
+    clientGuess = prompt('whats my favorite number');
+    if (clientGuess ==2){
+      completeGame = true;
+      alert('you got it');
+    }
+    else if (clientGuess < 2){
+      alert('guess is to low');
+    }
+    else{
+      alert('guess is to high');
+    }
   }
-  else if (clientGuess < 2){
-    alert("guess is to low");
-  }
-  else{
-    alert("guess is to high");
-  }
-}
 
-var planets=["murcury", "venus", "earth", "mars"];
-var planetCount=0;
-var planetGuess;
-var planetAttempt;
-var planetDone=false;
+  var planets=['murcury', 'venus', 'earth', 'mars'];
+  //var planetCount=0;
+  var planetGuess;
+  var planetAttempt;
+  var planetDone=false;
+  var planetCorrect = 0;
 
-for (planetAttempt = 0; planetAttempt < 6; planetAttempt++) {
+  for (planetAttempt = 0, planetCorrect = 0; planetAttempt < 6 && planetCorrect < 4 || planetDone === true; planetAttempt++) {
     planetGuess = prompt('Closest 4 planets?');
     console.log('planet guess ' + planetGuess);
-    if (planets.includes(planetGuess)) {
-        alert('You got one right!');
-        planetAttempt++;
+    if ((planets.includes(planetGuess) && planetCorrect < 4) === true) {
+      planetCorrect++;
+      alert('You got one right!' + '\n' + 'you have ' + planetCorrect + ' out of 4' + '\n' + 'Guesses left ' + (6 - planetAttempt));
+    }else if (planetCorrect === 4) {
+      alert('you won');
     }
+    else{
+      alert('Wrong guess again');
+    }
+  }
 }
 console.log(answer1);
 console.log(score1);
