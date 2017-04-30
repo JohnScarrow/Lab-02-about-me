@@ -1,8 +1,8 @@
 *{
   font-weight: normal;
   list-style: none;
-  padding: 0px;
-  margin: 0px;
+  padding: 0;
+  margin: 0;
   display: block;
   font-size: 12px;
 }
@@ -10,4 +10,8 @@
 body{
   background-color: blue;
   color: yellow;
+}
+div, p{
+  font-size: 30px;
+  display: inline;
 }

@@ -1,72 +1,88 @@
 'use strict';
 
-console.log('best page ever');
-var answer1 = prompt('Do you know me? Do I Like to Drive for fun?');
+var answer1;
 var score1;
-var answer2 = prompt('Do I like to Snowboard?');
+var answer2;
 var score2;
-var answer3 = prompt('Is there CSS on my webpage');
+var answer3;
 var score3;
-var answer4 = prompt('Can I breath under water');
+var answer4;
 var score4;
-var answer5 = prompt('You think you know me?');
+var answer5;
 var score5;
 var message;
 var forClient;
 
-answer1.toLowerCase.trim;
-answer2.toLowerCase.trim;
-answer3.toLowerCase.trim;
-answer4.toLowerCase.trim;
-answer5.toLowerCase.trim;
+function mainQuestion(){
+  console.log('best page ever');
+  var answer1 = prompt('Do you know me? Do I Like to Drive for fun?');
+  var score1;
+  var answer2 = prompt('Do I like to Snowboard?');
+  var score2;
+  var answer3 = prompt('Is there CSS on my webpage');
+  var score3;
+  var answer4 = prompt('Can I breath under water');
+  var score4;
+  var answer5 = prompt('You think you know me?');
+  var score5;
 
-if (answer1=='yes'){
-  score1='OK';
-}
-else {
-  score1=='Naw';
-}
-if (answer2=='yes'){
-  score2='OK';
-}
-else {
-  score2='Naw';
-}
-if (answer3=='yes'){
-  score3='OK';
-}
-else {
-  score3='Naw';
-}
-if (answer4=='no'){
-  score4='OK';
-}
-else {
-  score4='Naw';
+  answer1 = answer1.toLowerCase().trim;
+  answer2 = answer2.toLowerCase().trim;
+  answer3 = answer3.toLowerCase().trim;
+  answer4 = answer4.toLowerCase().trim;
+  answer5 = answer5.toLowerCase().trim;
 
-  if (answer5=='yes'){
-    score5='OK';
+  if (answer1=='yes'){
+    score1='OK';
   }
   else {
-    score5='Naw';
+    score1=='Naw';
   }
-
-  message = (score1+score2+ score3+ score4+ score5);
-
-  if (message=='OKOKOKOKOK'){
-    forClient='Wow, you do know things about me';
+  if (answer2=='yes'){
+    score2='OK';
   }
   else {
-    forClient='You aint know me';
+    score2='Naw';
   }
-  alert(forClient);
+  if (answer3=='yes'){
+    score3='OK';
+  }
+  else {
+    score3='Naw';
+  }
+  if (answer4=='no'){
+    score4='OK';
+  }
+  else {
+    score4='Naw';
 
+    if (answer5=='yes'){
+      score5='OK';
+    }
+    else {
+      score5='Naw';
+    }
+
+    message = (score1+score2+ score3+ score4+ score5);
+
+    if (message=='OKOKOKOKOK'){
+      forClient='Wow, you do know things about me';
+    }
+    else {
+
+      forClient='You aint know me';
+    }
+    alert(forClient);
+  }
+}
+function numberQuestion(){
   var completeGame = false;
   var clientGuess;
 
+
   var clientAttempt;
   for (clientAttempt = 0; clientAttempt < 4 && completeGame == false; clientAttempt++) {
-  // Runs 5 times, with values of step 0 through 4.
+// Runs 5 times, with values of step 0 through 4.
     clientGuess = prompt('whats my favorite number');
     if (clientGuess ==2){
       completeGame = true;
@@ -79,28 +95,39 @@ else {
       alert('guess is to high');
     }
   }
+}
 
-  var planets=['murcury', 'venus', 'earth', 'mars'];
-  //var planetCount=0;
+
+function planetsQuestion(){
+  var planets=['mercury', 'venus', 'earth', 'mars'];
+  var planetCount=0;
   var planetGuess;
   var planetAttempt;
+  var planetCorrect;
   var planetDone=false;
-  var planetCorrect = 0;
+
 
   for (planetAttempt = 0, planetCorrect = 0; planetAttempt < 6 && planetCorrect < 4 || planetDone === true; planetAttempt++) {
     planetGuess = prompt('Closest 4 planets?');
     console.log('planet guess ' + planetGuess);
-    if ((planets.includes(planetGuess) && planetCorrect < 4) === true) {
-      planetCorrect++;
-      alert('You got one right!' + '\n' + 'you have ' + planetCorrect + ' out of 4' + '\n' + 'Guesses left ' + (6 - planetAttempt));
-    }else if (planetCorrect === 4) {
-      alert('you won');
+
+    if (planets.includes(planetGuess)) {
+      alert('You got one right!');
+      planetCount++;
+      alert('You got ' + planetCount + ' out of 4!');
+
     }
     else{
       alert('Wrong guess again');
     }
   }
 }
+
+
+mainQuestion();
+numberQuestion();
+planetsQuestion();
+
 console.log(answer1);
 console.log(score1);
 console.log(answer2);
